@@ -1,1 +1,170 @@
 
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Forever With You ❤️</title>
+<link rel="stylesheet" href="style.css">
+<style>
+
+body{
+margin:0;
+height:100vh;
+background:black;
+color:white;
+font-family:Arial;
+text-align:center;
+overflow:hidden;
+}
+
+/* stars */
+
+.star{
+position:absolute;
+width:2px;
+height:2px;
+background:white;
+animation:twinkle 2s infinite;
+}
+
+@keyframes twinkle{
+0%{opacity:0.2}
+50%{opacity:1}
+100%{opacity:0.2}
+}
+
+/* heart rain */
+
+.heart{
+position:absolute;
+color:#ff4d6d;
+font-size:20px;
+animation:fall 6s linear infinite;
+}
+
+@keyframes fall{
+
+0%{
+transform:translateY(-10vh);
+}
+
+100%{
+transform:translateY(110vh);
+}
+
+}
+
+.container{
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+}
+
+.container img{
+width:200px;
+border-radius:20px;
+}
+
+button{
+margin-top:20px;
+padding:12px 30px;
+font-size:18px;
+border:none;
+border-radius:30px;
+background:#ff2e63;
+color:white;
+cursor:pointer;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Will You Stay With Me Forever? 💍</h1>
+
+<img src="https://media.giphy.com/media/MDJ9IbxxvDUQM/giphy.gif">
+
+<br>
+
+<button onclick="yes()">Yes Forever ❤️</button>
+
+</div>
+
+<script>
+
+/* stars */
+
+for(let i=0;i<120;i++){
+
+let star=document.createElement("div");
+
+star.className="star";
+
+star.style.left=Math.random()*100+"vw";
+star.style.top=Math.random()*100+"vh";
+
+document.body.appendChild(star);
+
+}
+
+/* heart rain */
+
+setInterval(()=>{
+
+let heart=document.createElement("div");
+
+heart.className="heart";
+
+heart.innerHTML="💖";
+
+heart.style.left=Math.random()*100+"vw";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},6000);
+
+},200);
+
+/* yes click */
+
+function yes(){
+
+for(let i=0;i<60;i++){
+
+let heart=document.createElement("div");
+
+heart.innerHTML="❤️";
+
+heart.style.position="absolute";
+
+heart.style.left=Math.random()*100+"vw";
+heart.style.top=Math.random()*100+"vh";
+
+heart.style.fontSize="30px";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},3000);
+
+}
+
+alert("Yay!! Forever together ❤️🐱");
+
+}
+
+</script>
+
+</body>
+</html>
+
+
