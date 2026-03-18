@@ -1,1 +1,271 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thank You ❤️</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial, sans-serif;
+background:linear-gradient(135deg,#ffb6b9,#fa709a);
+text-align:center;
+padding:30px;
+overflow-x:hidden;
+}
+
+h1{
+color:white;
+margin-bottom:25px;
+}
+
+.cats img{
+width:170px;
+border-radius:20px;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+max-width:900px;
+margin:auto;
+}
+
+.card{
+background:white;
+padding:25px;
+border-radius:20px;
+box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+.card p{
+font-size:15px;
+}
+
+button{
+margin-top:10px;
+padding:10px 20px;
+border:none;
+border-radius:25px;
+background:#ff2e63;
+color:white;
+cursor:pointer;
+transition:0.3s;
+}
+
+button:hover{
+transform:scale(1.1);
+box-shadow:0 0 15px #ff2e63;
+}
+
+.next-btn{
+padding:14px 35px;
+font-size:18px;
+border-radius:40px;
+margin-top:35px;
+}
+
+/* heart blast */
+
+.heart{
+position:fixed;
+font-size:22px;
+animation:blast 1.6s linear forwards;
+}
+
+@keyframes blast{
+0%{
+transform:translateY(0) scale(1);
+opacity:1;
+}
+100%{
+transform:translateY(-180px) scale(2);
+opacity:0;
+}
+}
+
+/* petals */
+
+.petal{
+position:fixed;
+font-size:18px;
+animation:fall 6s linear infinite;
+}
+
+@keyframes fall{
+0%{transform:translateY(-10vh) rotate(0deg);}
+100%{transform:translateY(110vh) rotate(360deg);}
+}
+
+/* popup */
+
+.popup{
+position:fixed;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+background:white;
+padding:25px;
+border-radius:15px;
+box-shadow:0 10px 30px rgba(0,0,0,0.3);
+display:none;
+width:300px;
+z-index:100;
+}
+
+</style>
+</head>
+
+<body>
+
+<audio autoplay loop>
+<source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8b7a4c8c2.mp3?filename=romantic-background-112191.mp3">
+</audio>
+
+<h1>Thank You For Forgiving Me ❤️</h1>
+
+<div class="cats">
+<img src="https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif">
+</div>
+
+<br>
+
+<div class="cards">
+
+<div class="card">
+<p>You are my favorite place in this whole world ❤️</p>
+<button onclick="blast()">Send Love</button>
+</div>
+
+<div class="card">
+<p>Every moment with you feels like magic ✨</p>
+<button onclick="blast()">Hug</button>
+</div>
+
+<div class="card">
+<p>If I had to choose again, I would choose you every time 💞</p>
+<button onclick="blast()">Love</button>
+</div>
+
+<div class="card">
+<p>Your smile is the most beautiful thing in my life 😊</p>
+<button onclick="blast()">Kiss</button>
+</div>
+
+<div class="card">
+<p>I promise to love you more every single day ❤️</p>
+<button onclick="openLetter()">Love Letter</button>
+</div>
+
+</div>
+
+<button class="next-btn" onclick="nextPage()">Next Page ❤️</button>
+
+<div class="popup" id="letter">
+
+<h3>💌 My Love</h3>
+
+<p>
+I know I made mistakes but my love for you is real.  
+You are the best thing that ever happened to me.  
+Thank you for forgiving me ❤️
+</p>
+
+<button onclick="closeLetter()">Close</button>
+
+</div>
+
+<script>
+spark.style.pointerEvents="none";
+/* HEART BLAST */
+
+function blast(){
+
+let centerX = window.innerWidth / 2;
+let centerY = window.innerHeight / 2;
+
+for(let i=0;i<30;i++){
+
+let heart=document.createElement("div");
+
+heart.className="heart";
+heart.innerHTML="❤️";
+
+heart.style.left=centerX + (Math.random()*200-100) + "px";
+heart.style.top=centerY + (Math.random()*200-100) + "px";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},1600);
+
+}
+
+}
+
+/* ROSE PETALS */
+
+setInterval(()=>{
+
+let petal=document.createElement("div");
+
+petal.className="petal";
+petal.innerHTML="🌹";
+
+petal.style.left=Math.random()*100+"vw";
+
+document.body.appendChild(petal);
+
+setTimeout(()=>{
+petal.remove();
+},6000);
+
+},500);
+
+/* POPUP */
+
+function openLetter(){
+document.getElementById("letter").style.display="block";
+}
+
+function closeLetter(){
+document.getElementById("letter").style.display="none";
+}
+
+/* SPARKLE CURSOR */
+
+document.addEventListener("mousemove",(e)=>{
+
+let spark=document.createElement("div");
+
+spark.innerHTML="✨";
+spark.style.position="fixed";
+spark.style.left=e.clientX+"px";
+spark.style.top=e.clientY+"px";
+spark.style.pointerEvents="none";
+
+document.body.appendChild(spark);
+
+setTimeout(()=>{
+spark.remove();
+},400);
+
+});
+
+/* NEXT PAGE */
+
+function nextPage(){
+window.location.href="forever.html";
+}
+
+</script>
+
+</body>
+</html>
+
+
